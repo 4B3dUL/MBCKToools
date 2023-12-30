@@ -1,0 +1,33 @@
+<div  class="flex-fill ms-md-2 w-100 w-md-50">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary fw-bolder d-flex justify-content-between align-items-center">
+            <span>{{rutType | titlecase}}</span>
+            <div>
+                <button (click)="utils.exportToCsv(ruts)" class="btn btn-sm btn-primary me-2"
+                    [appTooltip]="{ text: 'Descargar como CSV', position: 'top' }">
+                    <i class="bi bi-filetype-csv"></i>
+                </button>
+                <button (click)="utils.exportToTxt(ruts)" class="btn btn-sm btn-primary me-2"
+                    [appTooltip]="{ text: 'Descargar como TXT', position: 'top' }">
+                    <i class="bi bi-filetype-txt"></i>
+                </button>
+                <button (click)="utils.exportToJSON(ruts)" class="btn btn-sm btn-primary me-2"
+                    [appTooltip]="{ text: 'Descargar como JSON', position: 'top' }">
+                    <i class="bi bi-filetype-json"></i>
+                </button>
+            </div>
+        </li>
+
+        <li *ngFor="let rut of ruts" class="list-group-item d-flex  justify-content-between">
+            <span>{{rut}}</span>
+            <button (click)="copyRutToClipboard(rut)" class="btn btn-success btn-sm"
+                [appTooltip]="{ text: 'copiar', position: 'top' }">
+                <i [class]="rut === utils.copiedRut ? 'bi bi-clipboard-check-fill' : 'bi bi-clipboard'"
+                    id="liveToastBtn"></i>
+            </button>
+        </li>
+    </ul>
+</div>
+
+
+<app-toast [message]="'RUT copiado: ' + selectedRut"></app-toast>

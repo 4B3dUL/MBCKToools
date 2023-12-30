@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="d-flex flex-column">
+                <app-dni-creator></app-dni-creator>
+                <app-dni-validator></app-dni-validator>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="d-flex flex-column">
+                <app-dni-table [rutType]="'natural'"></app-dni-table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="d-flex flex-column">
+                <app-dni-table [rutType]="'juridico'"></app-dni-table>
+            </div>
+        </div>
+    </div>
+</div>

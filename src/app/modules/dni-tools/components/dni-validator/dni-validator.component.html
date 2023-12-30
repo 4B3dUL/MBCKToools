@@ -1,0 +1,15 @@
+<form class="g-3" [formGroup]="validateForm" (ngSubmit)="validateRut()">
+    <div class="row">
+        <div class="col">
+            <label class="form-label">Validar RUT</label>
+            <input type="text" class="form-control" formControlName="rut" placeholder="Ingrese RUT" />
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col">
+            <button type="submit" [disabled]="!validateForm.valid" class="btn btn-success me-2">Validar</button>
+            <label #validOrInvalidRutText class="form-label" [textContent]="validOrInvalidRutText"></label>
+        </div>
+    </div>
+</form>
